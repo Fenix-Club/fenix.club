@@ -8,7 +8,8 @@ angular.module('fenix', [
   'ui.bootstrap',
 
   // Project modules here
-  'fenix.templates'
+  'fenix.templates',
+  'fenix.staticPages'
 ])
 
 .config(function($stateProvider, stateHelperProvider, $urlRouterProvider) {
