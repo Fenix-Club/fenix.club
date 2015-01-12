@@ -1,3 +1,5 @@
+'use strict';
+
 angular.module('fenix.staticPages')
 
 .config(function(stateHelperProvider) {
