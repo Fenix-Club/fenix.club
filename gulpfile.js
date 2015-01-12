@@ -6,13 +6,11 @@ var gulp       = require('gulp'),
     concat     = require('gulp-concat'),
     jshint     = require('gulp-jshint'),
     stylish    = require('jshint-stylish'),
-    less       = require('gulp-less-sourcemap'),
+    less       = require('gulp-less'),
     sourcemaps = require('gulp-sourcemaps'),
     removeUst  = require('gulp-remove-use-strict'),
     argv       = require('yargs').argv,
     livereload = require('gulp-livereload'),
-    postcss    = require('gulp-postcss'),
-    autoprefixer= require('autoprefixer-core'),
     template    = require('gulp-template'),
     gulpif      = require('gulp-if'),
     injectReload= require('gulp-inject-reload'),
@@ -22,6 +20,12 @@ var gulp       = require('gulp'),
     rename = require('gulp-rename'),
     templateCache = require('gulp-angular-templatecache'),
     minifyHtml = require('gulp-minify-html');
+
+var LessPluginCleanCSS = require("less-plugin-clean-css"),
+cleancss = new LessPluginCleanCSS({advanced: true});
+
+var LessPluginAutoPrefix = require('less-plugin-autoprefix'),
+autoprefix= new LessPluginAutoPrefix({browsers: ['> 1%', 'last 2 versions', 'Firefox ESR', 'Opera 12.1', 'Safari >= 7']});
 
 
 var onError = function (err) {
@@ -60,7 +64,8 @@ gulp.task("compile_public", function() {
       }))
       .pipe(templateCache('templates.js', {
         root: 'templates/',
-        standalone: true
+        standalone: true,
+        module: 'fenix.templates'
       }))
       .pipe(gulp.dest('./build/scripts'))
     );
@@ -97,10 +102,11 @@ gulp.task("compile_less", function() {
     return merge(
       gulp.src('app/vendor/**/*.less').pipe(less()).pipe(concat('vendor.css')).pipe(gulp.dest('build/styles')),
       gulp.src('app/styles/fenixclub.less')
-        .pipe(less())
-        .pipe(postcss([autoprefixer({
-          browsers: ['> 1%', 'last 2 versions', 'Firefox ESR', 'Opera 12.1', 'Safari >= 7']
-        })]))
+        .pipe(sourcemaps.init())
+        .pipe(less({
+          plugins: [autoprefix, cleancss]
+        }))
+        .pipe(sourcemaps.write())
         .pipe(gulp.dest('./build/styles'))
         .pipe(livereload({auto:false}))
     );
