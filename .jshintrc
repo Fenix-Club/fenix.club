@@ -1,0 +1,15 @@
+{
+  "globalstrict": true,
+  "globals": {
+    "angular": false,
+    "$": false,
+    "_": false
+  },
+  "latedef": true,
+  "undef": true,
+  "indent": 2,
+  "trailing": true,
+  "curly": true,
+  "onevar": false,
+  "browser": true
+}
