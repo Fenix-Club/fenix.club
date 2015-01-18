@@ -6,10 +6,12 @@ angular.module('fenix', [
   'ui.router',
   'ui.router.stateHelper',
   'ui.bootstrap',
+  'ui.calendar',
 
   // Project modules here
   'fenix.templates',
-  'fenix.staticPages'
+  'fenix.staticPages',
+  'fenix.calendar'
 ])
 
 .config(function($stateProvider, stateHelperProvider, $urlRouterProvider) {
