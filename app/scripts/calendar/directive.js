@@ -6,35 +6,27 @@ angular.module('fenix.calendar')
 	return {
 		restrict: 'E',
 		require: 'ngModel',
-		scope: {
-			ngModel: '='
-		},
-		// templateUrl: 'assets/templates/calendar.html',
-		template: '<div ui-calendar ng-model="events"/>',
+		scope: {},
+		templateUrl: 'templates/calendar.html',
 		controller: 'calendarController',
-		transclude: 'true'
+		transclude: true
 	};
 })
 
 .controller('calendarController', ['$scope', '$http', function($scope, $http){
 
-	$scope.events = [];
+	// $scope.events = [];
+
+	var y = 2015;
+	var m = 0;
+	var d = 10;
 
 	$scope.events = [
-        {
-            title  : 'event1',
-            start  : '2015-01-01'
-        },
-        {
-            title  : 'event2',
-            start  : '2015-01-05',
-            end    : '2015-01-07'
-        },
-        {
-            title  : 'event3',
-            start  : '2015-01-09T12:30:00',
-            allDay : false
-        }
+      {title: 'All Day Event',start: new Date(y, m, 1)},
+      {title: 'Long Event',start: new Date(y, m, d - 5),end: new Date(y, m, d - 2)},
+      {id: 999,title: 'Repeating Event',start: new Date(y, m, d - 3, 16, 0),allDay: false},
+      {id: 999,title: 'Repeating Event',start: new Date(y, m, d + 4, 16, 0),allDay: false},
+      {title: 'Birthday Party',start: new Date(y, m, d + 1, 19, 0),end: new Date(y, m, d + 1, 22, 30),allDay: false}
     ];
 
 	// $http.get('/assets/events.json').success(function(data){
