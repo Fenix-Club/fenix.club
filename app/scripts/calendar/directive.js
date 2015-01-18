@@ -13,25 +13,20 @@ angular.module('fenix.calendar')
 	};
 })
 
-.controller('calendarController', ['$scope', '$http', function($scope, $http){
-
-	// $scope.events = [];
+.controller('calendarController', function($scope, $http) {
 
 	var y = 2015;
 	var m = 0;
 	var d = 10;
 
-	$scope.events = [
-      {title: 'All Day Event',start: new Date(y, m, 1)},
-      {title: 'Long Event',start: new Date(y, m, d - 5),end: new Date(y, m, d - 2)},
-      {id: 999,title: 'Repeating Event',start: new Date(y, m, d - 3, 16, 0),allDay: false},
-      {id: 999,title: 'Repeating Event',start: new Date(y, m, d + 4, 16, 0),allDay: false},
-      {title: 'Birthday Party',start: new Date(y, m, d + 1, 19, 0),end: new Date(y, m, d + 1, 22, 30),allDay: false}
-    ];
-
-	// $http.get('/assets/events.json').success(function(data){
-	// 	$scope.events = data;
-	// });
+  $scope.events = [
+          {title: 'All Day Event',start: new Date(y, m, 1)},
+          {title: 'Long Event',start: new Date(y, m, d - 5),end: new Date(y, m, d - 2)},
+          {id: 999,title: 'Repeating Event',start: new Date(y, m, d - 3, 16, 0),allDay: false},
+          {id: 999,title: 'Repeating Event',start: new Date(y, m, d + 4, 16, 0),allDay: false},
+          {title: 'Birthday Party',start: new Date(y, m, d + 1, 19, 0),end: new Date(y, m, d + 1, 22, 30),allDay: false}
+  ];
+  $scope.eventSource = [ $scope.events ];
 
 	$scope.uiConfig = {
       calendar:{
@@ -47,4 +42,4 @@ angular.module('fenix.calendar')
         eventResize: $scope.alertOnResize
       }
     };
-}]);
+});
