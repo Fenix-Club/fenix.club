@@ -28,10 +28,10 @@ exports.auth = function(req, res) {
         if(err) {
           return res.status(401).json({});
         }
+        req.session.token = token.token;
         res.json(token);
       });
     });
-    // TODO: setup cookie
   });
 
 };
@@ -57,4 +57,34 @@ exports.addUser = function(req, res) {
     res.json(user);
   });
 
+};
+
+exports.me = function(req, res) {
+  if(req.user) {
+    return res.json(req.user);
+  } else {
+    return res.status(403).json({});
+  }
+};
+
+exports.parseCookie = function(req, res, next) {
+  var token_id = req.session.token;
+  if(!token_id) {
+    return next();
+  }
+  Token.findOne({
+    token: token_id
+  })
+  .populate('user')
+  .exec(function(err, token) {
+    if(!err && token) {
+      req.user = token.user;
+    }
+    next();
+  });
+};
+
+exports.logout = function(req, res) {
+  req.session = null;
+  res.json({});
 };

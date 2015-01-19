@@ -12,4 +12,25 @@ angular.module('fenix.auth')
       }
     }
   });
+  stateHelperProvider.setNestedState({
+    name: 'auth-loading',
+    views: {
+      root: {
+        templateUrl: 'templates/auth/login.html'
+      }
+    }
+  });
+
+  stateHelperProvider.setNestedState({
+    name: 'admin-panel',
+    url: '/admin',
+    views: {
+      root: {
+        templateUrl: 'templates/auth/layout.html'
+      }
+    },
+    data: {
+      requiresLogin: true
+    }
+  });
 });
