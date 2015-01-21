@@ -1,1 +1,1 @@
-angular.module('fenix.calendar', []);
+angular.module('fenix.calendar', ['fenix.httpServices']);
