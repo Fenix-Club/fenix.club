@@ -11,8 +11,7 @@ angular.module('fenix', [
   // Project modules here
   'fenix.templates',
   'fenix.staticPages',
-  'fenix.calendar',
-  'fenix.httpServices'
+  'fenix.calendar'
 ])
 
 .config(function($stateProvider, stateHelperProvider, $urlRouterProvider) {
