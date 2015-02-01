@@ -26,7 +26,7 @@ angular.module('fenix.calendar')
         lang: 'pl',
         allDaySlot: false,
         header:{
-          left: 'agendaDay agendaWeek month',
+          left: 'agendaWeek month',
           center: 'title',
           right: 'prev,next'
         },
