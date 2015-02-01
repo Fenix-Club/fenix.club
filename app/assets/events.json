@@ -1,6 +1,6 @@
 [
 	{"title":"All Day Event","start":"2014-12-31T23:00:00.000Z"},
-	{"title":"Long Event","start":"2015-01-04T23:00:00.000Z","end":"2015-01-07T23:00:00.000Z"},
+	{"name":"Gunwo","start":"2015-02-01T11:00:00.000Z","end":"2015-02-01T20:00:00.000Z", "description":"Spam spam", "eventType":"physics", "url":"http://www.umrzyj.pl", "allDay":false},
 	{"id":999,"title":"Repeating Event","start":"2015-01-07T15:00:00.000Z","allDay":false},
 	{"id":999,"title":"Repeating Event","start":"2015-01-14T15:00:00.000Z","allDay":false},
 	{"title":"Birthday Party","start":"2015-01-11T18:00:00.000Z","end":"2015-01-11T21:30:00.000Z","allDay":false}
