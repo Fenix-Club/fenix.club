@@ -29,7 +29,7 @@
     },
     "fullcalendar": {
       "main": [
-        "fullcalendar.js",
+        "dist/fullcalendar.js",
         "dist/lang/pl.js"
       ]
     },
