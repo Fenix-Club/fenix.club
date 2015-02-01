@@ -12,7 +12,8 @@ angular.module('fenix', [
   'fenix.templates',
   'fenix.staticPages',
   'fenix.calendar',
-  'fenix.auth'
+  'fenix.auth',
+  'fenix.landing-page'
 ])
 
 .config(function($stateProvider, stateHelperProvider, $urlRouterProvider) {
