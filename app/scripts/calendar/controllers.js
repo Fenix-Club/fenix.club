@@ -24,6 +24,7 @@ angular.module('fenix.calendar')
         editable: false,
         defaultView: "agendaWeek",
         lang: 'pl',
+        allDaySlot: false,
         header:{
           left: 'agendaDay agendaWeek month',
           center: 'title',
