@@ -22,11 +22,11 @@ angular.module('fenix.calendar')
       calendar:{
         height: 800,
         editable: false,
-        lang: "pl",
+        defaultView: "agendaWeek",
         header:{
-          left: 'month basicWeek basicDay agendaWeek agendaDay',
+          left: 'agendaDay agendaWeek month',
           center: 'title',
-          right: 'today prev,next'
+          right: 'prev,next'
         },
         dayClick: $scope.alertEventOnClick,
         eventDrop: $scope.alertOnDrop,

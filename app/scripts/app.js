@@ -30,4 +30,8 @@ angular.module('fenix', [
     }
   }, true);
 
+})
+
+.run(function($locale) {
+  $locale.id = "pl-pl";
 });
